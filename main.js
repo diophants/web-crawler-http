@@ -1,5 +1,13 @@
-console.log('Hello World!!!');
+const { crawlPage } = require('./crawl');
 
-const url = new URL('https://blog.boot.devinvalid');
+async function main() {
+  if (process.argv.length !== 3) {
+    console.log('on website provided');
+    process.exit(1);
+  }
 
-console.log(url.href);
+  const baseURL = process.argv[2];
+  crawlPage(baseURL);
+}
+
+main();
